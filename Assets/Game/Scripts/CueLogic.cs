@@ -4,7 +4,7 @@ public class CueLogic : MonoBehaviour
 {
     
     [SerializeField] private Transform Cue;
-    //переменные для управления мышью и кием
+    //var for mouse controll
     private Vector3 mouse;
 
     void Start()
@@ -19,15 +19,15 @@ public class CueLogic : MonoBehaviour
     }
     void Rotation()
     {
-        //конвертація координат миші з пікселей до хуz
+        //convert mouse pos from pixels до xyz
         mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //встановлення y = рівень білої кулі
+        //set y = white ball y level
         mouse.y = transform.position.y;
-        //рахуємо відстань від кия до кулі
+        //looking for ball direction
         Vector3 ballDirection = transform.position - Cue.position;
-        //дивимось на кулю
+        //look on white ball
         Cue.rotation = Quaternion.LookRotation(ballDirection, mouse);
-        //переміщуємо кий за мишею
+        //moving Cue to mouse pos
         Cue.position = mouse;
     }
 }
