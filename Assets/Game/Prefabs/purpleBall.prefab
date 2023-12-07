@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 736570785619564307}
   - component: {fileID: 4141101232536998352}
   - component: {fileID: 2603501564396787000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: purpleBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
