@@ -10,9 +10,10 @@ public class CueLogic : MonoBehaviour
     private Rigidbody ballRb;
     private Vector3 mouse; //var for mouse controll
     private Vector3 ballDirection; //var for direction of ball
-
+    private Camera MainCamera;
     void Start()
     {
+        MainCamera = Camera.main;
         allBalls = new List<Rigidbody>(); //initiation of a list with balls
         ballRb = GetComponent<Rigidbody>(); //initiation of whiteball's rb
         var found = FindObjectsOfType<Rigidbody>(); //looking for everything that has a rb
@@ -26,11 +27,12 @@ public class CueLogic : MonoBehaviour
     {
         Rotation();
         Strike();
+        Cue.gameObject.SetActive(IsStopped());
     }
 
     void Rotation()
     {
-        mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouse = MainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouse.y = transform.position.y; //set y = white ball y level
 
         ballDirection = transform.position - Cue.position;
@@ -57,22 +59,20 @@ public class CueLogic : MonoBehaviour
         {
             if (ball != null && ball.velocity.magnitude > 0.01) //if at least one of balls is having more than .1 velocity - they are on move
             {
-                Cue.gameObject.SetActive(false);
                 return false;
             }
         }
-        Stopper();
-        Cue.gameObject.SetActive(true);
+        StopAllBalls();
         return true;
     }
 
     IEnumerator StopTimer(float time) //timer for stop motion of balls
     {
         yield return new WaitForSeconds(time);
-        Stopper();
+        StopAllBalls();
     }
 
-    void Stopper()
+    void StopAllBalls()
     {
         foreach (var ball in allBalls)
         {

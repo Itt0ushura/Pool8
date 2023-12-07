@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class PocketLogic : MonoBehaviour
@@ -15,7 +13,9 @@ public class PocketLogic : MonoBehaviour
     IEnumerator VanishCoolDown(float time)
     {
         yield return new WaitForSeconds(time);
-        CueLogic.allBalls.Remove(rb); //actual destroying of object
-        Destroy(rb.gameObject);
+        if (rb != null)
+        {
+            Destroy(rb.gameObject);
+        }
     }
 }
