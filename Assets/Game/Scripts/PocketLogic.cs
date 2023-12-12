@@ -12,10 +12,9 @@ public class PocketLogic : MonoBehaviour
 
     public TextMeshProUGUI ScoreText; //vars for updating score
 
-    ScoreCounter _scoreCounter;
+    public ScoreCounter _scoreCounter;
     void Start()
     {
-        _scoreCounter = FindObjectOfType<ScoreCounter>();
         _scoreCounter.ScoreUpdater += DisplayScore;
         RestartButton.onClick.AddListener(RestartClick);
     }
