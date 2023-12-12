@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,7 +16,7 @@ public class PocketLogic : MonoBehaviour
     void Start()
     {
         _scoreCounter = FindObjectOfType<ScoreCounter>();
-        ScoreCounter.ScoreUpdater += DisplayScore;
+        _scoreCounter.ScoreUpdater += DisplayScore;
         RestartButton.onClick.AddListener(RestartClick);
     }
     private void OnTriggerEnter(Collider other)
