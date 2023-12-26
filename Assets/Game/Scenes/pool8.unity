@@ -2839,8 +2839,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bf02a2b1c962e478e8f6e8e247fc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 819904053}
   RestartButton: {fileID: 731142896}
+  ScoreText: {fileID: 819904053}
+  _scoreCounter: {fileID: 0}
 --- !u!54 &1510525182 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 241943635031451828, guid: a81adde0bb91f0c45951dab41e4b2903,
@@ -3109,8 +3110,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882922513}
+  - component: {fileID: 1882922514}
   m_Layer: 0
-  m_Name: GameCore
+  m_Name: ScoreManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3131,6 +3133,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1882922514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882922512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb602527ab185094dbf09d79c8dcec59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1920494167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4373240898731634598, guid: 8977be3ec6828c34a8b94c42ecba9fb4,
